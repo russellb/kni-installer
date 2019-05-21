@@ -4,7 +4,7 @@ package baremetal
 import (
 	"fmt"
 
-        baremetalprovider "github.com/metal3-io/cluster-api-provider-baremetal/pkg/apis/baremetal/v1alpha1"
+	baremetalprovider "github.com/metal3-io/cluster-api-provider-baremetal/pkg/apis/baremetal/v1alpha1"
 
 	machineapi "github.com/openshift/cluster-api/pkg/apis/machine/v1beta1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -59,6 +59,6 @@ func Machines(clusterID string, config *types.InstallConfig, pool *types.Machine
 	return machines, nil
 }
 
-func provider(clusterName string, networkInterfaceAddress string, platform *baremetal.Platform, userDataSecret string) *libvirtprovider.LibvirtMachineProviderConfig {
+func provider(clusterName string, networkInterfaceAddress string, platform *baremetal.Platform, userDataSecret string) *baremetalprovider.BareMetalMachineProviderSpec {
 	return &baremetalprovider.BareMetalMachineProviderSpec{}
 }
